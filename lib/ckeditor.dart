@@ -7,11 +7,11 @@ if (dart.library.js) 'web_ckeditor.dart';
 
 /// A Calculator.
 abstract class CKEditor extends Widget {
-  static CKEditor _instance;
 
-  static CKEditor get instance {
-    _instance ??= getManager();
-    return _instance;
+  const CKEditor({Key key}) : super(key: key);
+
+  static CKEditor createEditor({String initialValue, Function(String value) onDataChanged, String viewId}){
+    return getManager(initialValue: initialValue, onDataChanged: onDataChanged, viewId: viewId);
   }
 
 }
